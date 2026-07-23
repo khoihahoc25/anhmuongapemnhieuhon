@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tỏ tình ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0c4);
+    height:100vh;
+    font-family:Arial,sans-serif;
+}
+
+.message{
+    position:absolute;
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+    text-shadow:0 0 10px red;
+    animation:float 8s linear infinite;
+    white-space:nowrap;
+}
+
+.heart{
+    position:absolute;
+    color:red;
+    font-size:30px;
+    animation:fall linear infinite;
+}
+
+.center{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:60px;
+    color:white;
+    text-shadow:0 0 20px red;
+    animation:pulse 1s infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(120vh);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-10vh) rotate(0deg);
+    }
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
+}
+
+@keyframes pulse{
+    50%{
+        transform:translate(-50%,-50%) scale(1.15);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="center">
+❤️ Làm người yêu anh nhé ❤️
+</div>
+
+<script>
+
+function createMessage(){
+
+    const text=document.createElement("div");
+    text.className="message";
+    text.innerHTML="💖 Làm người yêu anh nhé 💖";
+
+    text.style.left=Math.random()*100+"vw";
+    text.style.animationDuration=(5+Math.random()*5)+"s";
+    text.style.fontSize=(20+Math.random()*25)+"px";
+
+    document.body.appendChild(text);
+
+    setTimeout(()=>{
+        text.remove();
+    },10000);
+}
+
+function createHeart(){
+
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(20+Math.random()*40)+"px";
+    heart.style.animationDuration=(3+Math.random()*5)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+}
+
+setInterval(createMessage,250);
+setInterval(createHeart,120);
+
+</script>
+
+</body>
+</html>
